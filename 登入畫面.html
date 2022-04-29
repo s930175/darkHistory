@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入畫面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            background: url("https://picsum.photos/1440/1440?random1") no-repeat center center / cover;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login {
+            width: 600px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 10px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 50px #000;
+            backdrop-filter: blur(3px);
+            /* 讓裡面範圍模糊 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 400px;
+            color: #fff;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .form .group {
+            margin-bottom: 20px;
+        }
+
+        .form h2 label {
+            line-height: 2;
+        }
+
+        .form input {
+            width: 100%;
+            /*上下排列*/
+            border: 1px solid #aaa;
+            line-height: 3;
+            border-radius: 5px;
+        }
+
+        .form .btn-group {
+            margin-top: 50px;
+            font-size: 0;
+            /*兩個button中間的空格拿掉*/
+        }
+
+        .form .btn {
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(153, 153, 220);
+            width: 190px;
+            padding: 10px 0;
+        }
+
+        .form .btn+.btn {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+        <form action="" class="form" name="myForm" action="demo-form.php" onsubmit="validateForm();" method="post">
+            <h2>會員登入</h2>
+            <div class="group">
+                <label for="user-id">帳號</label>
+                <input type="text" name="email" id="user-id" placeholder="email" required>
+            </div>
+            <form action="">
+                <div class="group">
+                    <label for="user-password">密碼</label>
+                    <input type="password" name="" id="user-password" placeholder="6~12英數字" required>
+                </div>
+                <div class="btn-group">
+                    <button class="btn"><a href="./主頁.html"></a>登入</button>
+                    <button class="btn"><a href="./主頁.html"></a>取消</button>
+                </div>
+            </form>
+
+
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["email"].value;
+            //輸入的數據必須包含@ 符號和點號(.)。 同時，@ 不可以是郵件地址的首字符，並且@ 之後需有至少一個點號
+            var atpos = x.indexOf("@");
+            var dotpos = x.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                alert("請輸入有效email");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
